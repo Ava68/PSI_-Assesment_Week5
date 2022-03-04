@@ -1,0 +1,70 @@
+Q.1 How to create table with same structure with data?
+
+ANS:-> SUPPOSE WE HAVE ALREADY A TABLE PRESNT -> CUSTOMER AND WE HAVE TO CREATE ONE MORE TABLE THAT IS NEW_CUSTOMERS
+
+	CREATE TABLE NEW_CUSTOMERS AS 
+	SEELCT * FROM CUSTOMERS
+
+Q.2) How to create table with same structure without data?
+
+ANS-> IN THIS CASE WE DONOT HAVE DATA PRESENT INSIDE THE CUSTOMERS TABLE ONLY THE STRUCTURE WE CAN COPY
+
+	CREATE TABLE NEW_CUSTOMERS2 AS 
+	SEELCT * FROM CUSTOMERS WHERE 1 = 2
+
+Q3 How to display Last 10 records from Student table. 
+And How to fetch maximum salary of Employee and minimum salary of Employee together from Employee table ?
+
+	(SELECT * FROM Student ORDER BY ID DESC LIMIT 10)
+	ORDER BY STUDENT_ID ASC;
+
+	SELECT MAX(salary), MIN(salary) 
+	FROM employees;
+
+Q.4 Create a SQL Table and Read it’s record by using Template.
+	
+		create table STUDENTS(
+    	        NAME VARCHAR(250),
+                STUDENT_ID int,
+                ADDRESS VARCHAR,
+                MOBILE_NO NUMBER
+           
+)
+;
+	insert into STUDENTS
+	values
+   	 ("AVADHESH", 1, "BENGALURU", 9870142745, ),
+    	("PREM",2, "MUMBAI", 8379372926)
+
+	
+	SELECT * FROM STUDENTS
+	
+
+Q.5 List the Students whose name starts with P and surname starts with S.
+	
+	 SELECT * FROM STUDENTS WHERE FIRST_NAME like 'P%' and LAST_NAME like 'S%'
+
+Q 6) How to fetch last record from Student table
+
+	 SELECT * FROM STUDENTS 
+		ORDER BY SYUDENT_ID DESC 
+   		LIMIT 1
+Q7) Give a Example with Sample Data for Common Table Expression.
+
+	WITH 
+    	cteReports(BusID,NatID,LoginID,Organizationnode,JobTitle)
+   	 As
+    	(
+       		SELECT BusinessEntityID,NationalIDNumber,LoginID,Organizationnode,JobTitle
+        	FROM HumanResources.Employee
+    	)
+
+	SELECT BusID,NatID
+	FROM cteReports
+
+Q.8 Give a Example of Trigger Update & Delete Event.
+
+
+	UPDATE STUDENT_NAME SET NAME ="AVADHESH" WHERE STUDENT_ID = 5
+
+	DELETE FROM STUDENT WHERE STUDENT_ID = 5
